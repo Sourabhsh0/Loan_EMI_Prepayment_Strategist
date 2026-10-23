@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan & EMI Prepayment Strategist</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="badge">Personal Finance Tool</div>
+      <h1>Loan & EMI Prepayment Strategist</h1>
+      <p>Calculate your EMI and see how extra payments can reduce your loan tenure and interest.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card input-card">
+      <h2>Loan Details</h2>
+      <div class="grid">
+        <label>
+          Loan Amount (₹)
+          <input id="loanAmount" type="number" min="1" value="">
+        </label>
+        <label>
+          Annual Interest Rate (%)
+          <input id="interestRate" type="number" min="0" step="0.01" value="">
+        </label>
+        <label>
+          Loan Tenure (years)
+          <input id="tenureYears" type="number" min="1" max="50" value="">
+        </label>
+        <label>
+          Extra Monthly Payment (₹)
+          <input id="extraMonthly" type="number" min="0" value="">
+        </label>
+        <label>
+          One-Time Prepayment (₹)
+          <input id="oneTime" type="number" min="0" value="0">
+        </label>
+        <label>
+          Prepayment Month
+          <input id="prepayMonth" type="number" min="1" value="">
+        </label>
+      </div>
+      <button id="calculateBtn">Calculate Strategy</button>
+      <button id="resetBtn" class="secondary">Reset</button>
+      <p class="note">Educational calculator only. Actual lender calculations may differ because of fees, daily interest, dates and lender-specific rules.</p>
+    </section>
+
+    <section id="results" class="results hidden">
+      <div class="stats">
+        <div class="stat"><span>Regular EMI</span><strong id="emi">₹0</strong></div>
+        <div class="stat"><span>Regular Total Interest</span><strong id="regularInterest">₹0</strong></div>
+        <div class="stat"><span>Interest With Strategy</span><strong id="strategyInterest">₹0</strong></div>
+        <div class="stat highlight"><span>Interest Saved</span><strong id="interestSaved">₹0</strong></div>
+      </div>
+
+      <div class="stats two">
+        <div class="stat"><span>Original Tenure</span><strong id="regularTenure">0 months</strong></div>
+        <div class="stat"><span>New Tenure</span><strong id="strategyTenure">0 months</strong></div>
+        <div class="stat highlight"><span>Time Saved</span><strong id="monthsSaved">0 months</strong></div>
+        <div class="stat"><span>Total Strategy Payment</span><strong id="strategyTotal">₹0</strong></div>
+      </div>
+
+      <div class="card">
+        <h2>Strategy Summary</h2>
+        <div id="summary" class="summary"></div>
+      </div>
+
+      <div class="card">
+        <div class="table-head">
+          <h2>Amortization Preview</h2>
+          <button id="downloadBtn" class="secondary small">Download CSV</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th>Opening Balance</th>
+                <th>Regular Payment</th>
+                <th>Extra Payment</th>
+                <th>Interest</th>
+                <th>Principal</th>
+                <th>Closing Balance</th>
+              </tr>
+            </thead>
+            <tbody id="scheduleBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Loan & EMI Prepayment Strategist • Built with HTML, CSS & JavaScript <br>
+       • Build by S&T Innovator</br>
+    </p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
